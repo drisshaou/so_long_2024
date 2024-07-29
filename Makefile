@@ -6,7 +6,7 @@
 #    By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/07 22:11:56 by drhaouha          #+#    #+#              #
-#    Updated: 2024/07/29 12:58:58 by drhaouha         ###   ########.fr        #
+#    Updated: 2024/07/29 18:43:53 by drhaouha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ all: objs libftmini libmlx ${NAME}
 
 ${NAME}: ${OBJ} ${MINIFT_LIB} ${MLX_LIB}
 					@${CC} ${CFLAGS} $^ ${INC} ${MINIFT_LNK} ${MINIFT_INC} ${MLX_LNK} ${MLX_INC} ${GFLAGS} -o $@
-					@echo "${GREEN}${NAME} is created.${NC}"
+					@echo "[${GREEN}so_long${NC}] : Executable created.${NC}"
 
 ${OBJ_PATH}/%.o: ${GAME_PATH}/%.c
 					@${CC} ${CFLAGS} ${INC} ${MINIFT_INC} ${MLX_INC} -c $< -o $@
@@ -73,22 +73,22 @@ ${OBJ_PATH}/%.o: %.c
 
 objs:
 			@mkdir ${OBJ_PATH}
-			@echo "${BLUE}Directory objs is created.${NC}"
+			@echo "[${BLUE}so_long${NC}] : Directory objs created.${NC}"
 libmlx:
-			@make -C ${MLX_DIR}
+			@make -isC ${MLX_DIR}
 
 libftmini:
-			@make -C ${FTMINI_DIR}
+			@make -isC ${FTMINI_DIR}
 
 clean:
-			@make -C ${MLX_DIR} clean
-			@make -C ${FTMINI_DIR} fclean
+			@make -isC ${MLX_DIR} clean
+			@make -isC ${FTMINI_DIR} fclean
 			@rm -rf ${OBJ_PATH}
-			@echo "${ORANGE}${MINIFT_LIB}, ${MLX_LIB} and directory objs are removed.${NC}"
+			@echo "[${ORANGE}so_long${NC}] : Archives and directory objs removed.${NC}"
 
 fclean: clean
 			@rm -f ${NAME}
-			@echo "${RED}so_long is removed${NC}"
+			@echo "[${RED}so_long${NC}] : Executable removed${NC}"
 
 re: fclean all
 

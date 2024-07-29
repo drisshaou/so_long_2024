@@ -6,10 +6,11 @@
 #    By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/07 22:11:56 by drhaouha          #+#    #+#              #
-#    Updated: 2024/07/29 13:08:30 by drhaouha         ###   ########.fr        #
+#    Updated: 2024/07/29 18:39:45 by drhaouha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+BLUE			=	\033[0;34m
 GREEN			=	\033[0;32m
 ORANGE			=	\033[0;33m
 RED				=	\033[0;31m
@@ -32,21 +33,21 @@ NAME			=	libftmini.a
 
 %.o: %.c
 			@${CC} ${CFLAGS} -c -I./ $< -o $@
-			@echo "${NC}$@ is created${NC}"
+			@echo "[${BLUE}libftmini${NC}] : $@ created${NC}"
 
 ${NAME}:	${OBJS}
 			@ar rcs $@ ${OBJS}
-			@echo "${GREEN}${NAME} is created.${NC}"
+			@echo "[${GREEN}libftmini${NC}] : ${NAME} created.${NC}"
 
 all:		${NAME}
 
 clean:
 			@rm -f ${OBJS}
-			@echo "${ORANGE}Objects of libftmini are removed.${NC}"
+			@echo "[${ORANGE}libftmini${NC}] : Objects removed.${NC}"
 
 fclean:		clean
 			@rm -f ${NAME}
-			@echo "${RED}${NAME} is removed.${NC}"
+			@echo "[${RED}libftmini${NC}] : ${NAME} removed.${NC}"
 
 re:			fclean ${NAME}
 
