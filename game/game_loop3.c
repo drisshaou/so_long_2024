@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 06:54:20 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 14:36:08 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:40:22 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void	update_map_content(t_slng *so, t_player *which, t_coord coord)
 {
+	if (which->id == 'P')
+	{
+		ft_putstr("move(s): ");
+		ft_putnbr(++which->counter);
+		ft_putstr("\n");
+	}
 	if (so->exit->row == coord.row && so->exit->col == coord.col)
 		so->map[coord.row][coord.col] = 'E';
 	else if (so->collect[coord.row][coord.col] == true)
 		so->map[coord.row][coord.col] = 'C';
 	else
 		so->map[coord.row][coord.col] = '0';
-	if ((which->col == so->player->col && which->row == so->player->row
-			&& which->id == 'G')
-		|| (which->col == so->ghost->col && which->row == so->ghost->row
-			&& which->id == 'P'))
+	if (so->player->col == so->ghost->col && so->player->row == so->ghost->row)
 		game_is_over(so);
 	if (which->collected == so->collectibes && which->id == 'P'
 		&& which->row == so->exit->row && which->col == so->exit->col)
@@ -34,8 +37,6 @@ void	update_map_content(t_slng *so, t_player *which, t_coord coord)
 		which->collected++;
 	}
 	so->map[which->row][which->col] = which->id;
-	if (which->id == 'P')
-		which->counter++;
 }
 
 void	keep_player_inside(t_slng *so)

@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 06:54:20 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 13:15:58 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:40:17 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,14 +106,6 @@ bool	is_next_coord_valid(t_slng *so, t_player *which, t_coord coord)
 		&& so->map[which->row][which->col + 1] != '1')
 		which->col++;
 	if (!(coord.col == which->col && coord.row == which->row))
-	{
-		if (which->id == 'P')
-		{
-			ft_putstr("move(s): ");
-			ft_putnbr(which->counter);
-			ft_putstr("\n");
-		}
 		return (true);
-	}
 	return (false);
 }
