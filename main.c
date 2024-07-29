@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 21:23:59 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 13:11:09 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:03:59 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int ac, char **av)
 			return (0);
 		else
 			try_game(&map);
-		free_map(&map);
 	}
 	return (1);
 }

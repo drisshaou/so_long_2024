@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 06:54:20 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 14:12:37 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:06:20 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ int	game_loop(t_slng *so)
 	if (++frame_count < 1)
 		return (0);
 	frame_count = 0;
-	if (!so->player->is_moving)
-		process_player(so);
 	if (so->has_ghost && !so->ghost->is_moving)
 		process_ghost(so);
+	if (!so->player->is_moving)
+		process_player(so);
 	draw_frame(so);
 	return (1);
 }
