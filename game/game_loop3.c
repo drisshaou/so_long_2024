@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 06:54:20 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 14:34:53 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:36:08 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ void	animate_player(t_slng *so, t_player *which)
 	which->img->x += (STEP * 2 * (which->right - which->left));
 	which->img->y += (STEP * 2 * (which->down - which->up));
 	if (((which->img->y >= 0
-			&& which->img->y <= (so->height - which->img->height))
-		&& (which->img->x >= 0
-			&& which->img->x <= (so->width - which->img->width))
-		&& which->id == 'P') || which->id == 'G')
+				&& which->img->y <= (so->height - which->img->height))
+			&& (which->img->x >= 0
+				&& which->img->x <= (so->width - which->img->width))
+			&& which->id == 'P') || which->id == 'G')
 		which->img->x += (STEP * (which->up - which->down));
 	if (which->id == 'P')
 	{
