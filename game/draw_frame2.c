@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 07:02:34 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 08:26:18 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/31 07:35:41 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	refresh_frame(t_slng *so)
 		layer = get_player_layer(so, so->playground_tmp->img);
 	}
 	else
-		layer = get_player_layer(so, so->playground->img);
+		layer = get_player_layer(so, so->playground_full->img);
 	insert_layer_in_image(so, so->playground_tmp->img, layer);
 	if (so->has_ghost)
 	{
@@ -68,39 +68,29 @@ void	refresh_frame(t_slng *so)
 	insert_layer_in_image(so, so->playground_tmp->img, layer);
 }
 
-void	clean_frame(t_slng *so)
+t_pt	coord_to_position(t_slng *so, t_coord dest, t_dim d)
 {
-	t_img	layer;
+	t_coord	cur;
+	int		gap;
+	t_pt	pos;
 
-	layer = get_background_layer(so, so->playground->img,
-			(t_pt){so->player->img->_x, so->player->img->_y},
-			(t_size){so->player->img->width, so->player->img->height});
-	insert_layer_in_image(so, so->playground_tmp->img, layer);
-	layer = get_background_layer(so, so->playground->img,
-			(t_pt){so->player->img->_x, so->player->img->_y},
-			(t_size){so->player->img->width, so->player->img->height});
-	insert_layer_in_image(so, so->playground_full->img, layer);
-	if (so->has_ghost)
+	pos = (t_pt){0, 0};
+	d.cols = ((12 * d.rows) + (d.cols * 40)) / 40;
+	gap = ((12 * d.rows) / 40);
+	cur.row = 0;
+	while (cur.row < d.rows)
 	{
-		layer = get_background_layer(so, so->playground_full->img,
-				(t_pt){so->ghost->img->_x, so->ghost->img->_y},
-				(t_size){so->ghost->img->width, so->ghost->img->height});
-		insert_layer_in_image(so, so->playground_tmp->img, layer);
+		cur.col = 0;
+		while (cur.col < d.cols)
+		{
+			pos = (t_pt){(-12 * cur.row) + (cur.col * 40), cur.row * 24};
+			if (cur.col >= gap
+				&& (cur.col - gap) == dest.col && cur.row == dest.row)
+				return ((t_pt){pos.x + so->playground->img->x,
+					pos.y + so->playground->img->y});
+			cur.col++;
+		}
+		cur.row++;
 	}
-	layer = get_background_layer(so, so->playground_full->img,
-			(t_pt){(so->width - 164) / 2, 2},
-			(t_size){164, 20});
-	insert_layer_in_image(so, so->playground_tmp->img, layer);
-	layer = get_background_layer(so, so->playground_full->img,
-			(t_pt){4 - 4, so->height - 24 - 4},
-			(t_size){(so->collectibes * 24) + (so->collectibes * 2) + 8, 32});
-	insert_layer_in_image(so, so->playground_tmp->img, layer);
-}
-
-void	update_playgrounds_pos(t_slng *so)
-{
-	so->playground_full->img->x = so->playground->img->x;
-	so->playground_full->img->y = so->playground->img->y;
-	so->playground_tmp->img->x = so->playground->img->x;
-	so->playground_tmp->img->y = so->playground->img->y;
+	return (pos);
 }

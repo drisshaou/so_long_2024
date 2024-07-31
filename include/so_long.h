@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 21:23:59 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 13:04:43 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/31 07:33:49 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,14 +208,18 @@ void	playground_to_layer(t_img *layer, t_img *img);
 int		get_pixel_from_image(t_img *img, t_pt pos);
 void	put_pixel_to_image(t_img *img, t_pt pos, int color);
 t_img	get_background_layer(t_slng *so, t_img *img, t_pt p, t_size s);
+
 void	insert_image_to(t_img *dest, t_img *src, t_pt dst);
 void	insert_layer_in_image(t_slng *so, t_img *img, t_img layer);
 void	refresh_frame(t_slng *so);
+t_pt	coord_to_position(t_slng *so, t_coord dest, t_dim d);
+
+t_img	*get_playground_layer(t_slng *so);
 void	clean_frame(t_slng *so);
 void	update_playgrounds_pos(t_slng *so);
 int		draw_frame(t_slng *so);
 
-void	__timer(int i);
+void	__timer(unsigned long long i);
 void	you_win_next(t_slng *so);
 void	you_win(t_slng *so);
 

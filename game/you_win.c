@@ -6,13 +6,13 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 07:01:22 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 08:50:18 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/30 23:41:22 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	__timer(int i)
+void	__timer(unsigned long long i)
 {
 	while (i-- > 0)
 		;

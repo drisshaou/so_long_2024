@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 07:02:34 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 08:29:14 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/31 07:04:41 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	update_player_frame(t_slng *so, int count)
 {
 	so->player->frame = !(so->player->frame == 6) * so->player->frame;
-	if (count % 8 == 0 && (so->player->left || so->player->right
+	if (count % 3 == 0 && (so->player->left || so->player->right
 			|| so->player->up || so->player->down))
 	{
 		so->player->frame++;

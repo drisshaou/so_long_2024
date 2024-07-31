@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 06:54:20 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/07/29 15:06:20 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/07/31 06:44:27 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	process_player(t_slng *so)
 	{
 		loop = (so->player->left || so->player->right) * 20
 			+ (so->player->up || so->player->down) * 12;
+		so->player->frame = 0;
 		while (loop > 0)
 		{
 			so->player->is_moving = true;
