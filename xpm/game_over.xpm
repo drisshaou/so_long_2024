@@ -1,0 +1,25 @@
+/* XPM */
+static char *result[] = {
+/* columns rows colors chars-per-pixel */
+"144 16 3 1 ",
+"  c black",
+". c #E5E841",
+"X c #00ff16",
+/* pixels */
+"XXXX        XXXXXXXX        XXXXXX    XXXXXX  XXXX            XXXXXXXXXXXXXXXXXXXXXX        XXXXXX    XXXX    XXXX            XXXX          XXXX",
+"XXXX        XXXXXXXX        XXXXXX    XXXXXX  XXXX            XXXXXXXXXXXXXXXXXXXXXX        XXXXXX    XXXX    XXXX            XXXX          XXXX",
+"XX  ........  XXXX  ........  XX  ....  XX  ..    ............  XXXXXXXXXXXXXXXXXX  ........  XX  ....    ....    ............    ..........  XX",
+"XX  ........  XXXX  ........  XX  ....  XX  ..    ............  XXXXXXXXXXXXXXXXXX  ........  XX  ....    ....    ............    ..........  XX",
+"  ....    ....    ....    ....    ......  ....    ....        XXXXXXXXXXXXXXXXXX  ....    ....    ....    ....    ....        XX  ....    ....  ",
+"  ....    ....    ....    ....    ......  ....    ....        XXXXXXXXXXXXXXXXXX  ....    ....    ....    ....    ....        XX  ....    ....  ",
+"  ....        XX  ....    ....    ............    ..........  XXXXXXXXXXXXXXXXXX  ....    ....  XX  ........  XX  ..........  XX  ....    ....  ",
+"  ....        XX  ....    ....    ............    ..........  XXXXXXXXXXXXXXXXXX  ....    ....  XX  ........  XX  ..........  XX  ....    ....  ",
+"  ....  ......    ............    ............    ....      XXXXXXXXXXXXXXXXXXXX  ....    ....  XX  ........  XX  ....      XXXX  ..........  XX",
+"  ....  ......    ............    ............    ....      XXXXXXXXXXXXXXXXXXXX  ....    ....  XX  ........  XX  ....      XXXX  ..........  XX",
+"  ....    ....    ............    ....  ..  ..    ....        XXXXXXXXXXXXXXXXXX  ....    ....  XXXX  ....  XXXX  ....        XX  ....    ....  ",
+"  ....    ....    ............    ....  ..  ..    ....        XXXXXXXXXXXXXXXXXX  ....    ....  XXXX  ....  XXXX  ....        XX  ....    ....  ",
+"XX  ........  XX  ....    ....    ....      ..    ............  XXXXXXXXXXXXXXXXXX  ........  XXXXXX  ....  XXXX  ............    ....    ....  ",
+"XX  ........  XX  ....    ....    ....      ..    ............  XXXXXXXXXXXXXXXXXX  ........  XXXXXX  ....  XXXX  ............    ....    ....  ",
+"XXXX        XXXXXX    XXXX    XXXX    XXXXXX  XXXX            XXXXXXXXXXXXXXXXXXXXXX        XXXXXXXXXX    XXXXXXXX            XXXX    XXXX    XX",
+"XXXX        XXXXXX    XXXX    XXXX    XXXXXX  XXXX            XXXXXXXXXXXXXXXXXXXXXX        XXXXXXXXXX    XXXXXXXX            XXXX    XXXX    XX"
+};
