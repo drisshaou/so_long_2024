@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 06:59:29 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/08/02 08:22:14 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/08/03 20:44:14 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	game_is_over(t_slng *so)
 
 	so->game_over->x = (so->width - so->game_over->width) / 2;
 	so->game_over->y = (so->height - so->game_over->height) / 2;
-	so->finished = true;
+	so->finished = 1;
 	i = 40;
 	while (i-- > 0)
 	{

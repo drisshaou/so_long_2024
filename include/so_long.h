@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 21:23:59 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/08/02 09:29:06 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/08/03 21:00:30 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@
 # define ERR_MAP_UNRECT		"Error\nThe map is not rectangular.\n"
 # define ERR_LOAD_TEXTURE	"Error\nSome texture(s) can't be loaded.\n"
 # define ERR_MLX_INIT		"Error\nCan't init mlx.\n"
-# define MAP_TOO_BIG		"My so_long does not process maps larger than " \
-							"twice the screen size.\n"
+# define MAP_TOO_BIG		"My so_long does not process maps larger than \
+twice the screen size.\n"
 
 typedef struct s_count
 {
@@ -164,7 +164,7 @@ typedef struct s_win
 	t_coord		*exit;
 	t_dim		*map_dim;
 	int			collectibes;
-	bool		finished;
+	int			finished;
 	bool		has_ghost;
 	bool		**collect;
 }	t_slng;
@@ -215,6 +215,7 @@ t_img	get_background_layer(t_slng *so, t_img *img, t_pt p, t_size s);
 
 void	insert_image_to(t_img *dest, t_img *src, t_pt dst);
 void	insert_layer_in_image(t_slng *so, t_img *img, t_img layer);
+void	insert_ghost_layer(t_slng *so);
 void	refresh_frame(t_slng *so);
 t_pt	coord_to_position(t_slng *so, t_coord dest, t_dim d);
 

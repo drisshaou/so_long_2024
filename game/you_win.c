@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 07:01:22 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/08/02 08:22:14 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/08/03 20:30:47 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	you_win(t_slng *so)
 
 	j = -1;
 	k = 1;
-	so->finished = true;
+	so->finished = 2;
 	so->player->direction = 0;
 	so->you_win->x = (so->width - so->you_win->width) / 2;
 	so->you_win->y = (so->height - so->you_win->height) / 2;

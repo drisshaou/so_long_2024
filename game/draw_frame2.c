@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 07:02:34 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/08/02 08:22:14 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/08/03 20:43:54 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,34 @@ void	insert_layer_in_image(t_slng *so, t_img *img, t_img layer)
 	mlx_destroy_image(so->mlx, layer.ptr);
 }
 
+void	insert_ghost_layer(t_slng *so)
+{
+	t_img	layer;
+
+	layer = get_ghost_layer(so, so->ground_tmp->img);
+	insert_layer_in_image(so, so->ground_tmp->img, layer);
+}
+
 void	refresh_frame(t_slng *so)
 {
 	t_img	layer;
 
-	if (so->finished)
+	if (so->finished == 0)
 	{
-		layer = get_exit_layer(so, so->ground_full->img);
-		insert_layer_in_image(so, so->ground_tmp->img, layer);
 		layer = get_player_layer(so, so->ground_tmp->img);
+		insert_layer_in_image(so, so->ground_tmp->img, layer);
 	}
-	else
-		layer = get_player_layer(so, so->ground_full->img);
-	insert_layer_in_image(so, so->ground_tmp->img, layer);
 	if (so->has_ghost)
+		insert_ghost_layer(so);
+	layer = get_exit_layer(so, so->ground_tmp->img);
+	insert_layer_in_image(so, so->ground_tmp->img, layer);
+	if (so->finished != 0)
 	{
-		layer = get_ghost_layer(so, so->ground_tmp->img);
+		layer = get_player_layer(so, so->ground_tmp->img);
 		insert_layer_in_image(so, so->ground_tmp->img, layer);
+		if (so->has_ghost && so->finished == 1)
+			insert_ghost_layer(so);
 	}
-	if (!so->finished)
-		layer = get_exit_layer(so, so->ground_tmp->img);
-	if (!so->finished)
-		insert_layer_in_image(so, so->ground_tmp->img, layer);
 	layer = get_counter_layer(so, so->ground_tmp->img,
 			so->player->counter);
 	insert_layer_in_image(so, so->ground_tmp->img, layer);

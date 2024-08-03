@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 06:51:25 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/08/02 08:22:14 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/08/03 20:31:00 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	init_window_n_players(t_slng *so)
 		so->height = so->ground->img->height;
 	init_player(so);
 	init_ghost(so);
-	so->finished = false;
+	so->finished = 0;
 	so->has_ghost = true;
 	if (so->ghost->row == 0 && so->ghost->col == 0)
 		so->has_ghost = false;
