@@ -6,7 +6,7 @@
 /*   By: drhaouha <drhaouha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 07:02:34 by drhaouha          #+#    #+#             */
-/*   Updated: 2024/08/03 20:43:54 by drhaouha         ###   ########.fr       */
+/*   Updated: 2024/08/06 09:00:56 by drhaouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,21 @@ void	refresh_frame(t_slng *so)
 {
 	t_img	layer;
 
-	if (so->finished == 0)
+	if (so->finished == 2)
 	{
-		layer = get_player_layer(so, so->ground_tmp->img);
+		if (so->has_ghost)
+			insert_ghost_layer(so);
+		layer = get_exit_layer(so, so->ground_tmp->img);
 		insert_layer_in_image(so, so->ground_tmp->img, layer);
 	}
-	if (so->has_ghost)
-		insert_ghost_layer(so);
-	layer = get_exit_layer(so, so->ground_tmp->img);
+	layer = get_player_layer(so, so->ground_tmp->img);
 	insert_layer_in_image(so, so->ground_tmp->img, layer);
-	if (so->finished != 0)
+	if (so->finished == 0 || so->finished == 1)
 	{
-		layer = get_player_layer(so, so->ground_tmp->img);
-		insert_layer_in_image(so, so->ground_tmp->img, layer);
-		if (so->has_ghost && so->finished == 1)
+		if (so->has_ghost)
 			insert_ghost_layer(so);
+		layer = get_exit_layer(so, so->ground_tmp->img);
+		insert_layer_in_image(so, so->ground_tmp->img, layer);
 	}
 	layer = get_counter_layer(so, so->ground_tmp->img,
 			so->player->counter);
